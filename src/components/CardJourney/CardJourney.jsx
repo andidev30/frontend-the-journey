@@ -28,7 +28,7 @@ function CardJourney({ data }) {
   };
   return (
     <Card style={{ width: "18rem", marginRight: "10px" }}>
-      <Card.Img variant="top" src={data.image} />
+      {/* <Card.Img variant="top" src={data.image} /> */}
       <span className="text-muted">20 agustus 2020</span>
       <Card.Body>
         <Card.Title>{data.title}</Card.Title>

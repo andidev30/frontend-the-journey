@@ -4,7 +4,7 @@ import parse from 'html-react-parser'
 function Description({data, desc}) {
     return (
         <div>
-            <img src={data.image} alt="a"/>
+            {/* <img src={data.image} alt="a"/> */}
             <div>
                 {parse(desc)}
             </div>

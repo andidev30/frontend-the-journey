@@ -18,34 +18,26 @@ function AddJourney() {
     setDataForm({ ...dataForm, content: data });
   };
 
-  const [dataImage, setDataImage] = useState([]);
-
-  const changeSelecctedFile = (e) => {
-    setDataImage(e.target.files[0]);
-  };
-
   const createPost = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    const formData = new FormData();
-    formData.append("image", dataImage, dataImage.name);
-    formData.append("title", dataForm.title);
-    formData.append("description", dataForm.content);
+    console.log(dataForm);
+
     Axios({
       method: "post",
       url: `http://localhost:5000/api/v1/journey`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      data: formData,
+      data: {...dataForm},
     })
       .then((response) => {
-        console.log(response);
-        setDataForm({
-          title: "",
-          content: "",
-        });
+        // console.log(response);
+        // setDataForm({
+        //   title: "",
+        //   content: "",
+        // });
       })
       .catch((error) => {
         console.log(error);
@@ -68,7 +60,6 @@ function AddJourney() {
             placeholder="Title here ..."
           />
         </div>
-        <input type="file" onChange={changeSelecctedFile} />
 
         <CKEditor
           editor={ClassicEditor}
@@ -80,8 +71,7 @@ function AddJourney() {
           onChange={handleCKeditor}
           config={{
             ckfinder: {
-              uploadUrl: "http://localhost:5000/api/v1/editor-image",
-              proxy: "",
+              uploadUrl: "http://localhost:5000/upload-ck-editor",
             },
           }}
         />
