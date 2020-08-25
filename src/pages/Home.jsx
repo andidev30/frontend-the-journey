@@ -26,10 +26,15 @@ function Home() {
 
   return (
     <>
-      <Container fluid style={{ background: "#E5E5E5", padding: "50px" }}>
+      <Container fluid style={{ background: "#E5E5E5", padding: "80px" }}>
+        <h1 className="font-weight-bold text-left">Journey</h1>
         <Search />
         <Row className="mt-4">
-          {!data ? <h1>loading</h1> : data.map((td) => <CardJourney key={td.id} data={td} />)}
+          {!data ? (
+            <h1>loading</h1>
+          ) : (
+            data.map((td) => <CardJourney key={td.id} data={td} />)
+          )}
         </Row>
       </Container>
     </>

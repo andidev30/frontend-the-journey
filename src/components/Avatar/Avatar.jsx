@@ -34,9 +34,9 @@ function Avatar({ data }) {
   };
 
   return (
-    <div>
+    <div className="">
       <Row className="mt-4">
-        <Col className="">
+        <Col className="d-flex justify-content-center align-content-center">
           {image === "default.png" ? (
             <Image src={DefaultAvatar} height="150" roundedCircle />
           ) : (
@@ -44,8 +44,10 @@ function Avatar({ data }) {
           )}
         </Col>
       </Row>
-      <Row className="float-center mt-5 mb-5">
+      <Row className="d-flex justify-content-center align-content-center mt-3">
         <input type="file" onChange={changeSelecctedFile} />
+      </Row>
+      <Row className="d-flex justify-content-center align-content-center">
         <button
           onClick={uploadSelectedFile}
           className="btn btn-warning btn-sm text-white mt-3"
@@ -53,9 +55,10 @@ function Avatar({ data }) {
           Change Image
         </button>
       </Row>
-      <Row>
-        <Col className="">
-          <p>{data.fullname}</p>
+
+      <Row className="text-center mt-3">
+        <Col className="p-0 m-0">
+          <p className="font-weight-bold">{data.fullname}</p>
           <p>{data.email}</p>
         </Col>
       </Row>

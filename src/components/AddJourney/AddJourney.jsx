@@ -88,7 +88,7 @@ function AddJourney() {
 
         <button
           type="submit"
-          className="btn btn-warning btn-sm text-white mt-3"
+          className="btn btn-primary text-white float-right mt-3"
         >
           Post
         </button>
