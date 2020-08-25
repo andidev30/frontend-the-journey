@@ -6,9 +6,11 @@ import Axios from "axios";
 function Avatar({ data }) {
   const [dataImage, setDataImage] = useState([]);
   const [image, setImage] = useState(data.avatar);
+  const [isButton, setButton] = useState(true)
 
   const changeSelecctedFile = (e) => {
     setDataImage(e.target.files[0]);
+    setButton(false)
   };
 
   const uploadSelectedFile = () => {
@@ -51,6 +53,7 @@ function Avatar({ data }) {
         <button
           onClick={uploadSelectedFile}
           className="btn btn-warning btn-sm text-white mt-3"
+          disabled={isButton}
         >
           Change Image
         </button>
